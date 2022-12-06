@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
+import { FilterLabel } from './Filter.styled';
 
 const initialValues = {
   filter: '',
@@ -12,10 +13,10 @@ export const Filter = ({ onFilterChange, value }) => {
   }
   return (
     <Formik initialValues={initialValues}>
-      <label>
+      <FilterLabel>
         Find contacts by name
         <Field type="text" name="filter" value={value} onChange={onChange} />
-      </label>
+      </FilterLabel>
     </Formik>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
+import { FormBox } from './ContactsForm.styled';
 
 const initialValues = {
   name: '',
@@ -16,7 +16,7 @@ export const ContactsForm = ({ handleSubmit }) => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      <Form>
+      <FormBox>
         <label>
           Name
           <Field
@@ -38,7 +38,7 @@ export const ContactsForm = ({ handleSubmit }) => {
           />
         </label>
         <button type="submit">Add contact</button>
-      </Form>
+      </FormBox>
     </Formik>
   );
 };

@@ -72,7 +72,6 @@ export class App extends Component {
         <h2>Contacts</h2>
         {this.state.contacts.length > 0 && (
           <>
-            {' '}
             <Filter onFilterChange={this.onFilter} value={this.state.filter} />
             <ContactsList
               deleteContact={this.deleteContact}

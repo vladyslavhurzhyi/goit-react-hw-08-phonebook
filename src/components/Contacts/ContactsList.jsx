@@ -1,11 +1,12 @@
 import React from 'react';
+import { Item } from './ContactsList.styled';
 
 export const ContactsList = ({ data, deleteContact }) => {
   return (
     <ul>
       {data.map(item => {
         return (
-          <li key={item.id}>
+          <Item key={item.id}>
             {item.name}: {item.number}
             <button
               onClick={() => {
@@ -14,7 +15,7 @@ export const ContactsList = ({ data, deleteContact }) => {
             >
               Delete
             </button>
-          </li>
+          </Item>
         );
       })}
     </ul>
