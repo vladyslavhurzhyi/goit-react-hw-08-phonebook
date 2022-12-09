@@ -4,6 +4,8 @@ import { ContactsList } from './Contacts/ContactsList';
 import { ContactsForm } from './Contacts/ContactsForm';
 import { Filter } from './Filter/Filter';
 
+const LOKAL_STORAGE = 'contacts';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -29,9 +31,25 @@ export class App extends Component {
     });
   };
 
+  componentDidUpdate(prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem(LOKAL_STORAGE, JSON.stringify(this.state.contacts));
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem(LOKAL_STORAGE)) {
+      const localContacts = localStorage.getItem(LOKAL_STORAGE);
+      const parseContacts = JSON.parse(localContacts);
+      this.setState({ contacts: parseContacts });
+    }
+  }
+
   deleteContact = id => {
     this.setState(prevState => {
-      return { contacts: prevState.contacts.filter(item => item.id !== id) };
+      return {
+        contacts: prevState.contacts.filter(item => item.id !== id),
+      };
     });
   };
 
