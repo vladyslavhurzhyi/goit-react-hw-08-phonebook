@@ -17,20 +17,6 @@ export class App extends Component {
     filter: '',
   };
 
-  saveNewContact = (name, number) => {
-    const id = nanoid();
-    this.setState(prevState => {
-      const newContact = {
-        name,
-        number,
-        id,
-      };
-      return {
-        contacts: [...prevState.contacts, newContact],
-      };
-    });
-  };
-
   componentDidUpdate(prevState) {
     if (prevState.contacts !== this.state.contacts) {
       localStorage.setItem(LOKAL_STORAGE, JSON.stringify(this.state.contacts));
@@ -44,6 +30,20 @@ export class App extends Component {
       this.setState({ contacts: parseContacts });
     }
   }
+
+  saveNewContact = (name, number) => {
+    const id = nanoid();
+    this.setState(prevState => {
+      const newContact = {
+        name,
+        number,
+        id,
+      };
+      return {
+        contacts: [...prevState.contacts, newContact],
+      };
+    });
+  };
 
   deleteContact = id => {
     this.setState(prevState => {
