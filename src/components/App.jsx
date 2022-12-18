@@ -7,17 +7,20 @@ import { Filter } from './Filter/Filter';
 const LOKAL_STORAGE = 'contacts';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(LOKAL_STORAGE))
-  );
-
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = localStorage.getItem(LOKAL_STORAGE);
+    if (savedContacts !== null) {
+      const parsedContacts = JSON.parse(savedContacts);
+      return parsedContacts;
+    }
+    return [];
+  });
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    if (localStorage.getItem(LOKAL_STORAGE) !== []) {
+    if (localStorage.getItem(LOKAL_STORAGE) === []) {
       return;
     }
-    console.log(localStorage.getItem('cl 19str', LOKAL_STORAGE) === '');
     const localContacts = localStorage.getItem(LOKAL_STORAGE);
     const parseContacts = JSON.parse(localContacts);
     setContacts(parseContacts);
