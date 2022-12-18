@@ -61,11 +61,6 @@ export const App = () => {
     setFilter(filterInput);
   };
 
-  //  const initialValues = {
-  //    name: '',
-  //    number: '',
-  //  };
-
   const getFilterContacts = () => {
     if (contacts) {
       return contacts.filter(({ name }) =>
