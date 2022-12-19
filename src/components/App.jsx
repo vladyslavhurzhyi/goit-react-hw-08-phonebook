@@ -3,28 +3,13 @@ import { nanoid } from 'nanoid';
 import { ContactsList } from './Contacts/ContactsList';
 import { ContactsForm } from './Contacts/ContactsForm';
 import { Filter } from './Filter/Filter';
+import { getDataFromLS } from './service/getDataFromLS';
 
 const LOKAL_STORAGE = 'contacts';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    const savedContacts = localStorage.getItem(LOKAL_STORAGE);
-    if (savedContacts !== null) {
-      const parsedContacts = JSON.parse(savedContacts);
-      return parsedContacts;
-    }
-    return [];
-  });
+  const [contacts, setContacts] = useState(() => getDataFromLS(LOKAL_STORAGE));
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    if (localStorage.getItem(LOKAL_STORAGE) === []) {
-      return;
-    }
-    const localContacts = localStorage.getItem(LOKAL_STORAGE);
-    const parseContacts = JSON.parse(localContacts);
-    setContacts(parseContacts);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOKAL_STORAGE, JSON.stringify(contacts));
