@@ -9,7 +9,6 @@ export const App = () => {
   const contacts = useSelector(getContact);
   const filter = useSelector(getFilterValue);
   const dispatch = useDispatch();
-
   const handleSubmit = ({ name, number }) => {
     const isInContacts = contacts.some(contact => {
       return contact.name.toLowerCase() === name.toLowerCase();
@@ -23,6 +22,7 @@ export const App = () => {
   };
 
   const getFilterContacts = () => {
+    console.log(contacts);
     if (contacts) {
       return contacts.filter(({ name }) =>
         name.toLowerCase().includes(filter.toLowerCase())
