@@ -1,7 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contactSlice';
 import { Item } from './ContactsList.styled';
 
-export const ContactsList = ({ data, deleteContact }) => {
+export const ContactsList = ({ data }) => {
+  const dispatch = useDispatch();
+
   return (
     <ul>
       {data.map(item => {
@@ -10,7 +14,7 @@ export const ContactsList = ({ data, deleteContact }) => {
             {item.name}: {item.number}
             <button
               onClick={() => {
-                deleteContact(item.id);
+                dispatch(deleteContact(item.id));
               }}
             >
               Delete

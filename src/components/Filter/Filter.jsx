@@ -1,15 +1,18 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
 import { FilterLabel } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { setFilterValue } from 'redux/filterSlice';
 
-const initialValues = {
-  filter: '',
-};
+const initialValues = '';
 
-export const Filter = ({ onFilterChange, value }) => {
+export const Filter = ({ value }) => {
+  const dispatch = useDispatch();
+
   function onChange(event) {
     const filterInput = event.target.value;
-    onFilterChange(filterInput);
+
+    dispatch(setFilterValue(filterInput));
   }
   return (
     <Formik initialValues={initialValues}>
