@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { nanoid } from 'nanoid';
 import {  persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
@@ -15,8 +15,8 @@ export const contactSlice = createSlice({
 
         addContact: {
             reducer(state, action) {
-                
-                return [...state.items, action.payload];
+                // return [...state.items, action.payload];
+                state.items.push(action.payload);
             },
             prepare(name, number) {
                 return {
@@ -30,9 +30,10 @@ export const contactSlice = createSlice({
         },
 
         deleteContact: {
-            reducer(state, action) {
-                
-              return state.items.filter(item => item.id !== action.payload);
+            reducer(state, action) {  
+            const index = state.items.findIndex(task => task.id === action.payload);
+            state.items.splice(index, 1);
+        //    return state.items.filter(item => item.id !== action.payload);
             }
         }
     },
