@@ -10,7 +10,7 @@ export const App = () => {
   const filter = useSelector(getFilterValue);
   const dispatch = useDispatch();
   const handleSubmit = ({ name, number }) => {
-    const isInContacts = contacts.some(contact => {
+    const isInContacts = contacts.items.some(contact => {
       return contact.name.toLowerCase() === name.toLowerCase();
     });
 
@@ -22,21 +22,21 @@ export const App = () => {
   };
 
   const getFilterContacts = () => {
-    console.log(contacts);
-    if (contacts) {
-      return contacts.filter(({ name }) =>
+    if (contacts.items) {
+      return contacts.items.filter(({ name }) =>
         name.toLowerCase().includes(filter.toLowerCase())
       );
     }
   };
 
   const filteredContacts = getFilterContacts();
+
   return (
     <>
       <h1>Phonebook</h1>
       <ContactsForm handleSubmit={handleSubmit} />
 
-      {contacts.length > 0 && (
+      {contacts.items.length > 0 && (
         <>
           <h2>Contacts</h2>
           <Filter value={filter} />
