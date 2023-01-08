@@ -35,13 +35,13 @@ export const App = () => {
     <>
       <h1>Phonebook</h1>
       <ContactsForm handleSubmit={handleSubmit} />
-      {
+      {contacts.length > 0 && (
         <>
           <h2>Contacts</h2>
           <Filter value={filter} />
           <ContactsList data={filteredContacts} />
         </>
-      }
+      )}
     </>
   );
 };
