@@ -12,7 +12,7 @@ export const filterSlice = createSlice({
         setFilterValue: {
             reducer(state, action) {
             
-                return state = action.payload;
+                return  action.payload;
             }
         },
 

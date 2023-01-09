@@ -8,7 +8,7 @@ export const contactSlice = createSlice({
 
         addContact: {
             reducer(state, action) {
-                // return [...state.items, action.payload];
+            
                 state.items.push(action.payload);
             },
             prepare(name, number) {
@@ -26,7 +26,7 @@ export const contactSlice = createSlice({
             reducer(state, action) {  
             const index = state.items.findIndex(task => task.id === action.payload);
             state.items.splice(index, 1);
-        //    return state.items.filter(item => item.id !== action.payload);
+
             }
         }
     },

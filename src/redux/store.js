@@ -16,7 +16,7 @@ import { contactSlice } from "./contactSlice";
 
 
 const persistConfig = {
-  key: 'root',
+  key: 'contacts',
     storage,
     
 }
