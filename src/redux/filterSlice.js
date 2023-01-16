@@ -21,3 +21,5 @@ export const filterSlice = createSlice({
 });
 
 export const { setFilterValue } = filterSlice.actions;
+  
+    export const filterSliceReducer = filterSlice.reducer;

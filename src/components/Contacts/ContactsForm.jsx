@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
 import { FormBox } from './ContactsForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContact } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+// import { addContact } from 'redux/contactSlice';
 
 const initialValues = {
   name: '',
@@ -11,8 +11,8 @@ const initialValues = {
 };
 
 export const ContactsForm = () => {
-  const contacts = useSelector(getContact);
-  const dispatch = useDispatch();
+  const { items } = useSelector(getContacts);
+  // const dispatch = useDispatch();
 
   const onSubmit = (value, { resetForm }) => {
     handleSubmit(value);
@@ -21,7 +21,7 @@ export const ContactsForm = () => {
   };
 
   const handleSubmit = ({ name, number }) => {
-    const isInContacts = contacts.some(contact => {
+    const isInContacts = items.some(contact => {
       return contact.name.toLowerCase() === name.toLowerCase();
     });
 
@@ -29,7 +29,7 @@ export const ContactsForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(addContact(name, number));
+    // dispatch(addContact(name, number));
   };
 
   return (
