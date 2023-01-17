@@ -7,7 +7,7 @@ import { addContact } from 'redux/operations';
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 export const ContactsForm = () => {
