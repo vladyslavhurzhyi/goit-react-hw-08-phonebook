@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import { deleteContact } from 'redux/contactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/operations';
 import { getContacts, getFilterValue } from 'redux/selectors';
 import { Item } from './ContactsList.styled';
 
 export const ContactsList = () => {
   const { items } = useSelector(getContacts);
   const filter = useSelector(getFilterValue);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const getFilterContacts = () => {
     if (items) {
@@ -27,7 +27,7 @@ export const ContactsList = () => {
             {item.name}: {item.number}
             <button
               onClick={() => {
-                // dispatch(deleteContact(item.id));
+                dispatch(deleteContact(item.id));
               }}
             >
               Delete
