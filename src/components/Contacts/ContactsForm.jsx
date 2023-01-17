@@ -20,7 +20,7 @@ export const ContactsForm = () => {
     resetForm();
   };
 
-  const handleSubmit = ({ name, number }) => {
+  const handleSubmit = ({ name, phone }) => {
     const isInContacts = items.some(contact => {
       return contact.name.toLowerCase() === name.toLowerCase();
     });
@@ -29,7 +29,7 @@ export const ContactsForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    const newContact = { name, number };
+    const newContact = { name, phone };
     dispatch(addContact(newContact));
   };
 
@@ -50,7 +50,7 @@ export const ContactsForm = () => {
           Number
           <Field
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
