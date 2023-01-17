@@ -44,10 +44,11 @@ export const contactSlice = createSlice({
             state.contacts.isLoading = true;
         },
             [deleteContact.fulfilled](state, action) { 
-            state.contacts.isLoading = false;
-            state.contacts.error = null;
-            const index = state.contacts.items.findIndex(contact => contact.id === action.payload);
-            state.contacts.items.splice(index, 1);
+        console.log(action.payload);           
+                state.contacts.isLoading = false;
+                state.contacts.error = null;
+                const index = state.contacts.items.findIndex( el => el.id === action.payload.id);
+                state.contacts.items.splice(index, 1);
         },
 
         [deleteContact.rejected](state, action) {
