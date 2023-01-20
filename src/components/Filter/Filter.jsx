@@ -3,13 +3,13 @@ import { Formik, Field } from 'formik';
 import { FilterLabel } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterValue } from 'redux/filterSlice';
-import { getFilterValue } from 'redux/selectors';
+import { selectFilterValue } from 'redux/selectors';
 
 const initialValues = '';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const value = useSelector(getFilterValue);
+  const value = useSelector(selectFilterValue);
 
   function onChange(event) {
     const filterInput = event.target.value;
