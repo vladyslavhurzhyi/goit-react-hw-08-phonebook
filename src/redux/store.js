@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { filterSliceReducer } from "./filterSlice";
-import { contactSliceReducer } from "./contactSlice";
+import { contactSliceReducer } from "./contacts/contactSlice";
+import { filterSliceReducer } from "./contacts/filterSlice";
  
 
 export const store = configureStore({

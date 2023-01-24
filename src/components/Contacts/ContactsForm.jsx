@@ -3,7 +3,7 @@ import { Formik, Field } from 'formik';
 import { FormBox } from './ContactsForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/operations';
 
 const initialValues = {
   name: '',

@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Field } from 'formik';
 import { FilterLabel } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterValue } from 'redux/filterSlice';
 import { selectFilterValue } from 'redux/selectors';
+import { setFilterValue } from 'redux/contacts/filterSlice';
 
 const initialValues = '';
 

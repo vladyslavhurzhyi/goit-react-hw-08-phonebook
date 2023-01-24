@@ -4,7 +4,7 @@ import { Filter } from './Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 
 export const App = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
