@@ -1,5 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/authOperation';
 
 const initialValues = {
   email: '',
@@ -8,10 +10,14 @@ const initialValues = {
 
 export const Login = () => {
   //
+
+  const dispatch = useDispatch();
+
   const onSubmit = ({ email, password }, { resetForm }) => {
     console.log(email);
     console.log(password);
 
+    dispatch(login({ email, password }));
     resetForm();
   };
 
@@ -28,7 +34,7 @@ export const Login = () => {
             <Field type="password" name="password" />
           </label>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">LogIn</button>
       </Form>
     </Formik>
   );

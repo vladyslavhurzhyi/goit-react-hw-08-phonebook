@@ -13,7 +13,7 @@ export const ContactsList = () => {
       {filteredContacts.map(item => {
         return (
           <Item key={item.id}>
-            {item.name}: {item.phone}
+            {item.name}: {item.number}
             <button
               onClick={() => {
                 dispatch(deleteContact(item.id));
