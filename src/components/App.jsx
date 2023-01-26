@@ -13,9 +13,9 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          {/* <Route path="register" element={<Register />} /> */}
+          <Route path="register" element={<Register />} />
 
-          <Route
+          {/* <Route
             path="register"
             element={
               <PublicRoute
@@ -24,7 +24,7 @@ export const App = () => {
                 restricted
               />
             }
-          />
+          /> */}
           <Route
             path="login"
             element={
