@@ -9,7 +9,6 @@ export const PublicRoute = ({component: Component, redirectTo = "/", restricted 
   const shoudlRedirect = isLoggedIn && restricted;
   return (
   <>
-    {/* {shoudlRedirect ? navigate(redirectTo) : <Component/>} */}
     {shoudlRedirect ? <Navigate to={redirectTo}/>  : <Component/>}
   </>
       )

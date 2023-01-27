@@ -5,42 +5,54 @@ import { Register } from './Register/Register';
 import { Login } from './Login/Login';
 import { PublicRoute } from './service/PublicRoute';
 import { PrivateRoute } from './service/PrivateRoute';
-
-// import PrivateRoute from './service/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshUser } from 'redux/auth/authOperation';
+import { selectUserIsRefreshing } from 'redux/auth/authSelector';
+import { useEffect } from 'react';
 
 export const App = () => {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="register" element={<Register />} />
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectUserIsRefreshing);
 
-          {/* <Route
-            path="register"
-            element={
-              <PublicRoute
-                component={Register}
-                redirectTo="/login"
-                restricted
-              />
-            }
-          /> */}
-          <Route
-            path="login"
-            element={
-              <PublicRoute
-                component={Login}
-                redirectTo="/contacts"
-                restricted
-              />
-            }
-          />
-          <Route
-            path="contacts"
-            element={<PrivateRoute component={Contacts} redirectTo="/login" />}
-          ></Route>
-        </Route>
-      </Routes>
-    </>
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return (
+    !isRefreshing && (
+      <>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            {/* <Route path="register" element={<Register />} /> */}
+            <Route
+              path="register"
+              element={
+                <PublicRoute
+                  component={Register}
+                  redirectTo="/contacts"
+                  restricted
+                />
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute
+                  component={Login}
+                  redirectTo="/contacts"
+                  restricted
+                />
+              }
+            />
+            <Route
+              path="contacts"
+              element={
+                <PrivateRoute component={Contacts} redirectTo="/login" />
+              }
+            ></Route>
+          </Route>
+        </Routes>
+      </>
+    )
   );
 };

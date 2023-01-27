@@ -9,7 +9,7 @@ export const UserMenu = () => {
 
   return (
     <div>
-      <p>{email}</p>
+      <p>Welcome, {email}</p>
       <button
         type="button"
         onClick={() => {
