@@ -17,9 +17,6 @@ export const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  //   display: flex;
-  // flex-direction: column;
-  // align-items: center;
   return (
     <>
       <Flex bg="gray.100" justify="center" h="100vh">

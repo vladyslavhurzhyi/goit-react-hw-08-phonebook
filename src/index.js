@@ -17,10 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <BrowserRouter basename="/goit-react-hw-08-phonebook">
       <Provider store={store}>
-              <PersistGate loading={null} persistor={persistor}>
-          <ChakraProvider theme={theme}>
-          <App />
-          </ChakraProvider>
+          <PersistGate loading={null} persistor={persistor}>
+            <ChakraProvider theme={theme}>
+              <App />
+            </ChakraProvider>
           </PersistGate>
       </Provider>
     </BrowserRouter>
