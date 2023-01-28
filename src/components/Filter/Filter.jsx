@@ -4,6 +4,7 @@ import { FilterLabel } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilterValue } from 'redux/selectors';
 import { setFilterValue } from 'redux/contacts/filterSlice';
+import { Input } from '@chakra-ui/react';
 
 const initialValues = '';
 
@@ -20,7 +21,14 @@ export const Filter = () => {
     <Formik initialValues={initialValues}>
       <FilterLabel>
         Find contacts by name
-        <Field type="text" name="filter" value={value} onChange={onChange} />
+        <Field
+          as={Input}
+          type="text"
+          name="filter"
+          value={value}
+          onChange={onChange}
+          placeholder="search by name"
+        />
       </FilterLabel>
     </Formik>
   );

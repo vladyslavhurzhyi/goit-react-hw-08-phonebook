@@ -6,6 +6,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import { ContactsForm } from 'components/Contacts/ContactsForm';
 import { ContactsList } from 'components/Contacts/ContactsList';
 import { Filter } from 'components/Filter/Filter';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 export const Contacts = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
@@ -16,21 +17,38 @@ export const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  //   display: flex;
+  // flex-direction: column;
+  // align-items: center;
   return (
     <>
-      {error && <p>{error}</p>}
-      <h1>Phonebook</h1>
-      <ContactsForm />
-      <h2>Contacts</h2>
-      {isLoading && <p>Loading...</p>}
-      {items.length > 0 ? (
-        <>
-          <Filter />
-          <ContactsList />
-        </>
-      ) : (
-        !isLoading && <div> Контактов 0. Добавьте первый контакт.</div>
-      )}
+      <Flex bg="gray.100" justify="center" h="100vh">
+        <Box
+          bg="white"
+          p={10}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          {error && <p>{error}</p>}
+          <Text as="h1" color="black" fontSize="20" mb={5} textAlign="center">
+            Phonebook
+          </Text>
+          <ContactsForm />
+          <Text as="h1" color="black" fontSize="20" m={5} textAlign="center">
+            Contacts
+          </Text>
+          {isLoading && <p>Loading...</p>}
+          {items.length > 0 ? (
+            <>
+              <Filter />
+              <ContactsList />
+            </>
+          ) : (
+            !isLoading && <div> Контактов 0. Добавьте первый контакт.</div>
+          )}
+        </Box>
+      </Flex>
     </>
   );
 };

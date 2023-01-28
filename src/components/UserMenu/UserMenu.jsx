@@ -1,3 +1,4 @@
+import { Button, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperation';
@@ -8,16 +9,21 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <p>Welcome, {email}</p>
-      <button
+    <Flex align="center">
+      <Text color="white" f>
+        Welcome, {email}
+      </Text>
+      <Button
         type="button"
+        colorScheme="blue"
+        w="full"
+        ml={5}
         onClick={() => {
           dispatch(logOut());
         }}
       >
         Logout
-      </button>
-    </div>
+      </Button>
+    </Flex>
   );
 };

@@ -4,16 +4,13 @@ import { Form } from 'formik';
 export const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
-  max-width: 200px;
+  max-width: 400px;
   input {
-    width: 150px;
+    display: flex;
+    width: 250px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  button {
-    width: 100px;
-    border-radius: 20px;
-  }
-  border: solid 1px;
+
   padding: 10px;
 `;

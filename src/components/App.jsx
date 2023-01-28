@@ -23,7 +23,6 @@ export const App = () => {
       <>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            {/* <Route path="register" element={<Register />} /> */}
             <Route
               path="register"
               element={

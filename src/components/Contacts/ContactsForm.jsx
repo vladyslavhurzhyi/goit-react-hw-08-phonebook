@@ -4,6 +4,7 @@ import { FormBox } from './ContactsForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { Input, Button } from '@chakra-ui/react';
 
 const initialValues = {
   name: '',
@@ -39,6 +40,7 @@ export const ContactsForm = () => {
         <label>
           Name
           <Field
+            as={Input}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -49,6 +51,7 @@ export const ContactsForm = () => {
         <label>
           Number
           <Field
+            as={Input}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,7 +59,9 @@ export const ContactsForm = () => {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <Button type="submit" colorScheme="blue" borderRadius="5px" w="100%">
+          Add contact
+        </Button>
       </FormBox>
     </Formik>
   );
