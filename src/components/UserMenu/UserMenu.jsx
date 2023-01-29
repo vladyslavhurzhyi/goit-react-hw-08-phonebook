@@ -10,7 +10,7 @@ export const UserMenu = () => {
 
   return (
     <Flex align="center">
-      <Text color="white" f>
+      <Text color="white" fontSize={['10px', '12px', '14px', '16px']}>
         Welcome, {email}
       </Text>
       <Button

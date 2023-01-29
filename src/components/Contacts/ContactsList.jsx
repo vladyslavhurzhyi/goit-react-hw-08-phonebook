@@ -18,6 +18,7 @@ export const ContactsList = () => {
               {item.name}: {item.number}
               <Button
                 minW="auto"
+                ml={5}
                 type="button"
                 colorScheme="red"
                 onClick={() => {
