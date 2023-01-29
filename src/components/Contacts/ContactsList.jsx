@@ -19,7 +19,7 @@ export const ContactsList = () => {
               <Button
                 minW="auto"
                 type="button"
-                colorScheme="blue"
+                colorScheme="red"
                 onClick={() => {
                   dispatch(deleteContact(item.id));
                 }}
