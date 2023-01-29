@@ -26,7 +26,7 @@ export const Contacts = () => {
         maxW={['400px', '450px', '768px', '900px', '1440px']}
       >
         <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
-          <Box bg="white">
+          <Box bg="white" p={['0px', '10px']} mt={['0px', '50px']}>
             {error && <p>{error}</p>}
             <Text as="h1" color="black" fontSize="20" mb={5} textAlign="center">
               Phonebook
