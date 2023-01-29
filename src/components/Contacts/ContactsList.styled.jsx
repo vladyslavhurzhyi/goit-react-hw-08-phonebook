@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 export const Item = styled.li`
   font-size: 16px;
-  margin-bottom: 10px;
+  margin: 5px;
 
-  button {
-    margin-left: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

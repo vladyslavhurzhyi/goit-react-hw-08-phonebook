@@ -13,7 +13,6 @@ export const SharedLayout = () => {
       <Box as="header">
         <Flex
           as="nav"
-          alignItems="center"
           justifyContent={isLoggedIn ? 'space-between' : 'flex-end'}
           p={5}
           bgGradient="linear(to top, #373b44, #4286f4)"

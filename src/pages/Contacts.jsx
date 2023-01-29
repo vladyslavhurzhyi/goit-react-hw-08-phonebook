@@ -19,14 +19,8 @@ export const Contacts = () => {
 
   return (
     <>
-      <Flex bg="gray.100" justify="center" h="100vh">
-        <Box
-          bg="white"
-          p={10}
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-        >
+      <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
+        <Box bg="white" p={10} m={10} rounded="md" maxW="400px">
           {error && <p>{error}</p>}
           <Text as="h1" color="black" fontSize="20" mb={5} textAlign="center">
             Phonebook

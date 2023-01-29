@@ -36,8 +36,8 @@ export const Register = () => {
   const handleClick = () => setShow(!show);
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md">
+    <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
+      <Box bg="white" p={10} m={10} rounded="md">
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
           <Form>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
