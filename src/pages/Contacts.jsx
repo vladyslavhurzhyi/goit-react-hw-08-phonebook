@@ -25,7 +25,13 @@ export const Contacts = () => {
         className="containerSL"
         maxW={['400px', '450px', '768px', '900px', '1440px']}
       >
-        <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
+        <Flex
+          bg="gray.100"
+          justify="center"
+          h="100vh"
+          alignItems="flex-start"
+          p={5}
+        >
           <Box bg="white" p="10px" mt={['0px', '50px']} borderRadius="10px">
             {error && <p>{error}</p>}
             <Text as="h1" color="black" fontSize="20" mb={5} textAlign="center">
