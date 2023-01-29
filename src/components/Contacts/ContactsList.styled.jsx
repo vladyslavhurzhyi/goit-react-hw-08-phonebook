@@ -7,4 +7,7 @@ export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  button {
+    margin-left: 5px;
+  }
 `;

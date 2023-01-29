@@ -1,4 +1,4 @@
-import { Box, Flex, Button } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
@@ -10,27 +10,33 @@ export const ContactsList = () => {
   const dispatch = useDispatch();
 
   return (
-    <Flex alignItems="center">
-      <Box as="ul" listStyleType="none">
-        {filteredContacts.map(item => {
-          return (
-            <Item key={item.id}>
-              {item.name}: {item.number}
-              <Button
-                minW="auto"
-                ml={5}
-                type="button"
-                colorScheme="red"
-                onClick={() => {
-                  dispatch(deleteContact(item.id));
-                }}
-              >
-                Delete
-              </Button>
-            </Item>
-          );
-        })}
-      </Box>
-    </Flex>
+    // <Box alignItems="center">
+    <Box
+      as="ul"
+      listStyleType="none"
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      wordBreak="break-word"
+    >
+      {filteredContacts.map(item => {
+        return (
+          <Item key={item.id}>
+            {item.name}: {item.number}
+            <Button
+              minW="auto"
+              type="button"
+              colorScheme="red"
+              onClick={() => {
+                dispatch(deleteContact(item.id));
+              }}
+            >
+              Delete
+            </Button>
+          </Item>
+        );
+      })}
+    </Box>
+    // </Box>
   );
 };
