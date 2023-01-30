@@ -11,6 +11,7 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { useToast } from '@chakra-ui/react';
 
 const initialValues = {
   email: '',
@@ -18,12 +19,28 @@ const initialValues = {
 };
 
 export const Login = () => {
-  //
-
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const onSubmit = ({ email, password }, { resetForm }) => {
-    dispatch(login({ email, password }));
+    dispatch(login({ email, password }))
+      .unwrap()
+      .then(() =>
+        toast({
+          title: `Success login`,
+          status: 'success',
+          isClosable: true,
+          position: 'top',
+        })
+      )
+      .catch(() =>
+        toast({
+          title: `Try again with another email or password`,
+          status: 'error',
+          isClosable: true,
+          position: 'top',
+        })
+      );
     resetForm();
   };
 
