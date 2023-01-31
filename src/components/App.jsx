@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperation';
 import { selectUserIsRefreshing } from 'redux/auth/authSelector';
 import { useEffect } from 'react';
+import { NotFound } from 'pages/NotFound';
+import { Home } from './Home/Home';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ export const App = () => {
       <>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
+            <Route path="/" element={<Home />} />
             <Route
               path="register"
               element={
@@ -50,6 +53,7 @@ export const App = () => {
               }
             ></Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </>
     )

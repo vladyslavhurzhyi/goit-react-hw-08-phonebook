@@ -18,7 +18,6 @@ export const SharedLayout = () => {
           maxW={['400px', '450px', '768px', '900px', '1440px']}
         >
           <Flex
-            // minW="320px"
             pt={5}
             pb={5}
             as="nav"
