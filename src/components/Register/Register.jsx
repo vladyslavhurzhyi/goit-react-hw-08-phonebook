@@ -11,6 +11,8 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { signupSchema } from 'components/service/YapValidation';
+import { ErrorMsgStyled } from 'components/service/YapValidation.styled';
 
 const initialValues = {
   name: '',
@@ -38,16 +40,22 @@ export const Register = () => {
   return (
     <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
       <Box bg="white" p={10} m={10} rounded="md">
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={signupSchema}
+        >
           <Form>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <label>
                 Name
                 <Field as={Input} type="text" name="name" />
+                <ErrorMsgStyled component="span" name="name" />
               </label>
               <label>
                 Email
                 <Field as={Input} type="email" name="email" />
+                <ErrorMsgStyled component="span" name="email" />
               </label>
               <label>
                 Password
@@ -55,7 +63,6 @@ export const Register = () => {
                   <Field
                     as={Input}
                     pr="4.5rem"
-                    // type={show ? 'text' : 'password'}
                     type={show ? 'text' : 'password'}
                     name="password"
                   />
@@ -65,11 +72,8 @@ export const Register = () => {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                <ErrorMsgStyled component="span" name="password" />
               </label>
-              {/* <label>
-                Password
-                <Field as={Input} type="password" name="password" />
-              </label> */}
             </div>
             <Button type="submit" colorScheme="blue" w="full" mt={5}>
               Sign Up

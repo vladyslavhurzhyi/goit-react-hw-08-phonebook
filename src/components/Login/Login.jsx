@@ -12,6 +12,8 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useToast } from '@chakra-ui/react';
+import { loginSchema } from 'components/service/YapValidation';
+import { ErrorMsgStyled } from 'components/service/YapValidation.styled';
 
 const initialValues = {
   email: '',
@@ -50,12 +52,17 @@ export const Login = () => {
   return (
     <Flex bg="gray.100" justify="center" h="100vh" alignItems="flex-start">
       <Box bg="white" p={10} m={10} rounded="md">
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={loginSchema}
+        >
           <Form>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <label>
                 Email
                 <Field as={Input} type="email" name="email" />
+                <ErrorMsgStyled component="span" name="email" />
               </label>
               <label>
                 Password
@@ -63,10 +70,10 @@ export const Login = () => {
                   <Field
                     as={Input}
                     pr="4.5rem"
-                    // type={show ? 'text' : 'password'}
                     type={show ? 'text' : 'password'}
                     name="password"
                   />
+
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleClick}>
                       {show ? 'Hide' : 'Show'}
@@ -75,6 +82,7 @@ export const Login = () => {
                 </InputGroup>
               </label>
             </div>
+            <ErrorMsgStyled component="span" name="password" />
             <Button type="submit" colorScheme="blue" w="full" mt={5}>
               Login
             </Button>
